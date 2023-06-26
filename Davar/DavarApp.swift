@@ -9,9 +9,14 @@ import SwiftUI
 
 @main
 struct DavarApp: App {
+    @StateObject var taskListViewModel: TaskListViewModel = TaskListViewModel()
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            NavigationView {
+                TaskListView()
+            }
+            .environmentObject(taskListViewModel)
         }
     }
 }
