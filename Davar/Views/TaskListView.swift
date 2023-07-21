@@ -8,28 +8,22 @@
 import SwiftUI
 
 struct TaskListView: View {
-    @EnvironmentObject var taskListViewModel: TaskListViewModel
-    
+    @StateObject var viewModel = DavarCoreViewModel()
+
     var body: some View {
-        List {
-            ForEach(taskListViewModel.items) { item in
-                TaskListRowView(item: item)
-                    .frame(height: 52, alignment: Alignment.center)
-                    .onTapGesture {
-                        withAnimation(.linear) {
-                            taskListViewModel.updateItem(item: item)
-                        }
-                    }
+        ScrollView {
+            ForEach(viewModel.projects) { project in
+                TaskListRowView(projectEntity: project)
+                    .padding(10)
             }
-            .onDelete(perform: taskListViewModel.deleteItem)
-            .onMove(perform: taskListViewModel.moveItem)
         }
-        .listStyle(.plain)
-        .navigationTitle("✏️ Tasks")
+        .navigationTitle("Projects Overview")
         .navigationBarItems(
-            leading: EditButton(),
-            trailing: NavigationLink("Add", destination: AddTaskView())
+            trailing: NavigationLink("Add new project", destination: AddTaskView())
         )
+        .onAppear {
+            viewModel.getProjects()
+        }
     }
 }
 
@@ -38,6 +32,5 @@ struct TaskListView_Previews: PreviewProvider {
         NavigationView {
             TaskListView()
         }
-        .environmentObject(TaskListViewModel())
     }
 }

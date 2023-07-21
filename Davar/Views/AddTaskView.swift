@@ -9,22 +9,45 @@ import SwiftUI
 
 struct AddTaskView: View {
     @Environment(\.presentationMode) var presentationMode
-    @EnvironmentObject var taskListViewModel: TaskListViewModel
+    @ObservedObject var viewModel = DavarCoreViewModel()
     
     @State var textTitleFieldValue: String = ""
+    @State var textDescriptionFieldValue: String = ""
+    @State var dueDateFieldValue = Date.now
     @State var showAlert: Bool = false
     @State var alertTitle: String = ""
     
     var body: some View {
-        ScrollView {
-            VStack {
-                TextField("Type your task here...", text: $textTitleFieldValue)
-                    .padding(.horizontal)
-                    .frame(height: 55)
-                    .background(Color(.systemGray6))
-                    .cornerRadius(10)
+        VStack {
+            Form {
+                Section {
+                    TextField("Type your task here...", text: $textTitleFieldValue)
+                        .frame(height: 55)
+                        .cornerRadius(10)
+                } header: {
+                    Text("Name")
+                }
                 
-                Button(action: saveButtonPressed, label: {
+                Section {
+                    TextEditor(text: $textDescriptionFieldValue)
+                        .frame(height: 165)
+                        .cornerRadius(10)
+                } header: {
+                    Text("Description")
+                }
+                
+                Section {
+                    DatePicker(
+                            "Due date",
+                            selection: $dueDateFieldValue,
+                            displayedComponents: [.date]
+                        )
+                } header: {
+                    Text("Dates")
+                }
+            }
+            
+            Button(action: saveButtonPressed, label: {
                     Text("Save")
                         .font(.headline)
                         .foregroundColor(.white)
@@ -32,21 +55,19 @@ struct AddTaskView: View {
                         .frame(maxWidth: .infinity)
                         .background(Color.accentColor)
                         .cornerRadius(10)
-
-                })
-                    
-            }
-            .padding(15)
+                        .padding(15)
+            })
             
+            Spacer()
         }
-        .navigationTitle("Add new Task")
+        .navigationTitle("New Project")
         .alert(isPresented: $showAlert, content: getAlert)
     }
     
     func saveButtonPressed() {
         if isTextValid() {
-            taskListViewModel.addItem(title: textTitleFieldValue)
-            presentationMode.wrappedValue.dismiss()
+            viewModel.addProject(title: textTitleFieldValue, description: textDescriptionFieldValue, dueDate: dueDateFieldValue)
+            presentationMode.projectedValue.wrappedValue.dismiss()
         }
     }
     
@@ -70,6 +91,5 @@ struct AddTaskView_Previews: PreviewProvider {
         NavigationView {
             AddTaskView()
         }
-        .environmentObject(TaskListViewModel())
     }
 }

@@ -7,17 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		828959CF2A49887D00BE779C /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828959CE2A49887D00BE779C /* CoreDataManager.swift */; };
+		828959D12A498DD400BE779C /* DavarCoreViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828959D02A498DD400BE779C /* DavarCoreViewModel.swift */; };
+		828959D42A498E6B00BE779C /* DavarCoreContainer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 828959D22A498E6B00BE779C /* DavarCoreContainer.xcdatamodeld */; };
 		82B6E3EF2A3C47E400D87F51 /* DavarApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B6E3EE2A3C47E400D87F51 /* DavarApp.swift */; };
 		82B6E3F32A3C47E600D87F51 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 82B6E3F22A3C47E600D87F51 /* Assets.xcassets */; };
 		82B6E3F62A3C47E600D87F51 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 82B6E3F52A3C47E600D87F51 /* Preview Assets.xcassets */; };
 		82B6E3FE2A3C48D100D87F51 /* TaskListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B6E3FD2A3C48D100D87F51 /* TaskListView.swift */; };
 		82B6E4002A3C4A9000D87F51 /* TaskListRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B6E3FF2A3C4A9000D87F51 /* TaskListRowView.swift */; };
 		82B6E4022A3C4EDA00D87F51 /* AddTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B6E4012A3C4EDA00D87F51 /* AddTaskView.swift */; };
-		82B6E4052A3F6E1F00D87F51 /* TaskModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B6E4042A3F6E1F00D87F51 /* TaskModel.swift */; };
-		82B6E4082A42DD3500D87F51 /* TaskListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B6E4072A42DD3500D87F51 /* TaskListViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		828959CE2A49887D00BE779C /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		828959D02A498DD400BE779C /* DavarCoreViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DavarCoreViewModel.swift; sourceTree = "<group>"; };
+		828959D32A498E6B00BE779C /* DavarCoreContainer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DavarCoreContainer.xcdatamodel; sourceTree = "<group>"; };
 		82B6E3EB2A3C47E400D87F51 /* Davar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Davar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		82B6E3EE2A3C47E400D87F51 /* DavarApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DavarApp.swift; sourceTree = "<group>"; };
 		82B6E3F22A3C47E600D87F51 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -25,8 +29,6 @@
 		82B6E3FD2A3C48D100D87F51 /* TaskListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListView.swift; sourceTree = "<group>"; };
 		82B6E3FF2A3C4A9000D87F51 /* TaskListRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListRowView.swift; sourceTree = "<group>"; };
 		82B6E4012A3C4EDA00D87F51 /* AddTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskView.swift; sourceTree = "<group>"; };
-		82B6E4042A3F6E1F00D87F51 /* TaskModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskModel.swift; sourceTree = "<group>"; };
-		82B6E4072A42DD3500D87F51 /* TaskListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +42,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		828959CD2A49885300BE779C /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				828959CE2A49887D00BE779C /* CoreDataManager.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
 		82B6E3E22A3C47E400D87F51 = {
 			isa = PBXGroup;
 			children = (
@@ -59,12 +69,13 @@
 		82B6E3ED2A3C47E400D87F51 /* Davar */ = {
 			isa = PBXGroup;
 			children = (
+				828959CD2A49885300BE779C /* Common */,
 				82B6E4062A42DD0A00D87F51 /* ViewModel */,
-				82B6E4032A3F6E0C00D87F51 /* Models */,
 				82B6E3FC2A3C488200D87F51 /* Views */,
 				82B6E3EE2A3C47E400D87F51 /* DavarApp.swift */,
 				82B6E3F22A3C47E600D87F51 /* Assets.xcassets */,
 				82B6E3F42A3C47E600D87F51 /* Preview Content */,
+				828959D22A498E6B00BE779C /* DavarCoreContainer.xcdatamodeld */,
 			);
 			path = Davar;
 			sourceTree = "<group>";
@@ -87,18 +98,10 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		82B6E4032A3F6E0C00D87F51 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				82B6E4042A3F6E1F00D87F51 /* TaskModel.swift */,
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
 		82B6E4062A42DD0A00D87F51 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				82B6E4072A42DD3500D87F51 /* TaskListViewModel.swift */,
+				828959D02A498DD400BE779C /* DavarCoreViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -173,12 +176,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				828959D42A498E6B00BE779C /* DavarCoreContainer.xcdatamodeld in Sources */,
 				82B6E3EF2A3C47E400D87F51 /* DavarApp.swift in Sources */,
 				82B6E3FE2A3C48D100D87F51 /* TaskListView.swift in Sources */,
-				82B6E4052A3F6E1F00D87F51 /* TaskModel.swift in Sources */,
 				82B6E4002A3C4A9000D87F51 /* TaskListRowView.swift in Sources */,
 				82B6E4022A3C4EDA00D87F51 /* AddTaskView.swift in Sources */,
-				82B6E4082A42DD3500D87F51 /* TaskListViewModel.swift in Sources */,
+				828959CF2A49887D00BE779C /* CoreDataManager.swift in Sources */,
+				828959D12A498DD400BE779C /* DavarCoreViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -379,6 +383,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		828959D22A498E6B00BE779C /* DavarCoreContainer.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				828959D32A498E6B00BE779C /* DavarCoreContainer.xcdatamodel */,
+			);
+			currentVersion = 828959D32A498E6B00BE779C /* DavarCoreContainer.xcdatamodel */;
+			path = DavarCoreContainer.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 82B6E3E32A3C47E400D87F51 /* Project object */;
 }
